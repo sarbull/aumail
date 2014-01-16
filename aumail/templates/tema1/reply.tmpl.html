@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reply</title>
+    <link rel="stylesheet" href="/static/css/reset.css" media="all" type="text/css">
+    <link rel="stylesheet" href="/static/css/buttons.css" media="all" type="text/css">
+    <link rel="stylesheet" href="/static/css/stylesheet.css" media="all" type="text/css">
+    <script src="http://use.edgefonts.net/open-sans:n7,i7,n8,i8,i4,n3,i3,n4,n6,i6:all.js"></script>
+    <script type="text/javascript" src="/static/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="/static/js/tiny_mce.init.js"></script>
+    <script src="/static/js/jquery-1.8.3.js"></script>
+    <script src="/static/js/functions.js"></script>
+    <script src="/static/js/compose.js"></script>
+</head>
+<body>
+    <div id="container">
+        <header class="shadow">
+            <h1>Reply: {{ mail.subject }}</h1>
+        </header>
+        <nav class="shadow">
+            <div class="composeemail">
+                <a href="/compose" class="btn green">Compose</a>
+            </div>
+            <ul>
+                <li><a href="#logout">Settings</a></li>
+                <li><a href="/email/logoff">Logout</a></li>
+            </ul>
+            <br style="clear:both;">
+        </nav>
+        <div id="content">
+            <div id="left">
+                <div class="shadow content mbottom">
+                    <h1>Folders</h1>
+                    <ul class="emailmenu">
+                        <li><a href="/inbox">Inbox</a></li>
+                        <li><a href="/sent">Sent</a></li>
+                        <li><a href="/drafts">Drafts</a></li>
+                        <li><a href="/agenda">Contact list</a></li>
+                    </ul>
+                </div>
+                <div class="shadow content mbottom">
+                    <div id="sendemailfiles">
+                        <h1>Attached files</h1>
+                        <select multiple="multiple" size="5" name="files" id="files">
+                            <option value="file1">file.pdf</option>
+                            <option value="file2">song.mp3</option>
+                            <option value="file2">document.doc</option>
+                        </select>
+                        <button class="btn white">Add file</button>
+                        <button class="btn white">Delete</button>
+                    </div>
+                </div>
+                <div class="shadow content">
+                    <div id="contactlist">
+                        <h1>Contact list</h1>
+                        <input type="text" name="filtreza" id="search" placeholder="Search contacts">
+                        <div id="contacts">
+                        </div>
+                        <div class="addselectto">
+                            <button class="btn white">Add to recipients</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="right">
+                <div class="shadow content mbottom">
+                    <h1>Compose</h1>
+                </div>
+                <div class="shadow content">
+                    <form action="/compose/" method="POST">
+                        {% csrf_token %}
+                        <div id="sendheader" class="mbottom">
+                            <table>
+                                <tr>
+                                    <td class="text">To: </td>
+                                    <td><input type="text" name="to" id="to" value="{{ email }}"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text">CC:</td>
+                                    <td><input type="text" name="cc" id="cc"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text">Subject:</td>
+                                    <td><input type="text" name="subject" id="subject" value="RE: {{ mail.subject }}"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="sendbody" class="mbottom">
+                            <textarea name="message">{{ body }}</textarea>
+                        </div>
+                        <div id="sendfooter">
+                            <button type="submit" class="btn white">Send</button>
+                            <button class="btn white">Save to drafts</button>
+                            <button type="reset" class="btn white">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br style="clear:both;">
+        </div>
+        <footer class="shadow">
+            <p class="content">Aplicatii Web. Tema1 &copy; 2013</p>
+        </footer>
+    </div>
+</body>
+</html>

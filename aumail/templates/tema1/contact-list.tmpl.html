@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact list</title>
+    <link rel="stylesheet" href="/static/css/reset.css" media="all" type="text/css">
+    <link rel="stylesheet" href="/static/css/buttons.css" media="all" type="text/css">
+    <link rel="stylesheet" href="/static/css/stylesheet.css" media="all" type="text/css">
+    <script src="http://use.edgefonts.net/open-sans:n7,i7,n8,i8,i4,n3,i3,n4,n6,i6:all.js"></script>
+    <script src="/static/js/jquery-1.8.3.js"></script>
+    <script src="/static/js/functions.js"></script>
+    <script src="/static/js/compose.js"></script>
+</head>
+<body>
+    <div id="container">
+        <header class="shadow">
+            <h1>Contact list</h1>
+        </header>
+        <nav class="shadow">
+            <div class="composeemail">
+                <a href="/compose" class="btn green">Compose</a>
+            </div>
+            <ul>
+                <li><a href="#logout">Settings</a></li>
+                <li><a href="/email/logoff">Logout</a></li>
+            </ul>
+            <br style="clear:both;">
+        </nav>
+        <div id="content">
+            <div id="left">
+                <div class="shadow content mbottom">
+                    <h1>Folders</h1>
+                    <ul class="emailmenu">
+                        <li><a href="/inbox">Inbox</a></li>
+                        <li><a href="/sent">Sent</a></li>
+                        <li><a href="/drafts">Drafts</a></li>
+                        <li><a href="/agenda">Contact list</a></li>
+                    </ul>
+                </div>
+                <div class="shadow content mbottom">
+                    <button class="btn white">New contact</button>
+                    <button class="btn white">Delete selected</button>
+                </div>
+                <div class="shadow content">
+                    <div id="contactlist">
+                        <h1>Contact list</h1>
+                        <input type="text" name="filtreza" id="search" placeholder="Search contacts">
+                        <div id="contacts">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="right">
+                <div class="shadow content">
+                    <h1 style="font-size:20px;margin-bottom:10px;">Contacts</h1>
+                    {%for uti in  utilizatori%}
+                        <div id="showcontact">
+                            <h2 style="margin-bottom:3px;">{{uti.name|upper}}</h2>
+                            <p style="margin-bottom:5px;">{{uti.email}}</p>
+                        </div>
+                    {%endfor%}
+                </div>
+            </div>
+            <br style="clear:both;">
+        </div>
+        <footer class="shadow">
+            <p class="content">Aplicatii Web. Tema1 &copy; 2013</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+imbox/__init__.py
+imbox/imap.py
+imbox/parser.py
+imbox/query.py
+pip-egg-info/imbox.egg-info/PKG-INFO
+pip-egg-info/imbox.egg-info/SOURCES.txt
+pip-egg-info/imbox.egg-info/dependency_links.txt
+pip-egg-info/imbox.egg-info/not-zip-safe
+pip-egg-info/imbox.egg-info/top_level.txt

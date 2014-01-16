@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aumail</title>
+    <link rel="stylesheet" href="/static/css/reset.css" media="all" type="text/css">
+    <link rel="stylesheet" href="/static/css/buttons.css" media="all" type="text/css">
+    <link rel="stylesheet" href="/static/css/stylesheet.css" media="all" type="text/css">
+    <script src="http://use.edgefonts.net/open-sans:n7,i7,n8,i8,i4,n3,i3,n4,n6,i6:all.js"></script>
+</head>
+<body>
+    <div id="login" class="shadow">
+        <form action="/authenticate/" method="POST"> {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" class="btn white">Login</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
