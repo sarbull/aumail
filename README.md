@@ -12,7 +12,7 @@ A simple webmail powered by Django. It's a homework for Web Applications course.
 $ python manage.py runserver
 ```
 
-Copyright (c) 2015 <Sirbu Nicolae-Cezar>.
+This project is under BSD license. Copyright (c) 2015 <Sirbu Nicolae-Cezar>.
 All rights reserved.
 
 Redistribution and use in source and binary forms are permitted
